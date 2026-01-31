@@ -30,6 +30,7 @@ setup(
             'measurement_node = localization.measurement:main',
             'ekf_node = localization.ekf:main',
             'initinal_pos = localization.initinal_pos:main',
+            'a_star_planner_node = localization.a_star_planner_node:main',
         ],
     },
 )

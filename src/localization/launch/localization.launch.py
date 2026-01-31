@@ -48,10 +48,19 @@ def generate_launch_description():
         parameters=[{"use_sim_time": use_sim_time}],
     )
 
+    a_star = Node(
+        package="localization",
+        executable="a_star_planner_node",
+        name="a_star_planner_node",
+        output="screen",
+        parameters=[{"use_sim_time": use_sim_time}],
+    )
+
     return LaunchDescription([
         declare_sim_time,
         prediction_node,
         measurement_node,
         ekf_node,
         initinal_pos,
+        a_star,
     ])

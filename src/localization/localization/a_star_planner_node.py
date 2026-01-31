@@ -74,6 +74,7 @@ class AStarPlanner(Node):
         self.last_pose_for_plan: Optional[PoseStamped] = None
 
         self.last_path: Optional[Path] = None
+        self.publish_enabled = False
 
         map_qos = QoSProfile(depth=1)
         map_qos.reliability = QoSReliabilityPolicy.RELIABLE
@@ -105,6 +106,8 @@ class AStarPlanner(Node):
         self.publish_timer = self.create_timer(self.publish_period_sec, self.publish_last_path)
 
     def publish_last_path(self):
+        if not self.publish_enabled:
+            return
         if self.last_path is None:
             return
         self.last_path.header.stamp = self.get_clock().now().to_msg()
@@ -245,6 +248,8 @@ class AStarPlanner(Node):
             response.success = False
             response.message = 'No AMCL pose received yet.'
             return response
+
+        self.publish_enabled = True
 
         goal = request.goal
         if goal.header.frame_id == '':
