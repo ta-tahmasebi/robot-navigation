@@ -1,0 +1,100 @@
+# --- ROS 2 / colcon workspace artifacts ---
+build/
+install/
+log/
+.colcon/
+.colcon_ignore
+
+**/build/
+**/install/
+**/log/
+
+# --- Generated/temporary files from CMake & compilers ---
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+*.exp
+*.ilk
+*.pch
+*.pdb
+
+# ccache / clangd
+.ccache/
+.cache/
+.clangd/
+
+# --- Python artifacts ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.mypy_cache/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.dist-info/
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# --- Editor/IDE junk ---
+# VS Code
+.vscode/
+.history/
+# JetBrains / CLion
+.idea/
+*.iml
+# Vim / Emacs
+*~
+*.swp
+*.swo
+.#*
+# Xcode
+*.xcworkspace/
+*.xcodeproj/
+xcuserdata/
+
+# --- OS & shell noise ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs & temp files ---
+*.log
+*.tmp
+tmp/
+temp/
+
+# --- ROS 2 data files ---
+# Rosbag2 outputs (SQLite/MCAP)
+*.db3
+*.mcap
+# RViz/recording caches
+rosbag2_*/
+# Gazebo/Ignition generated state
+.gazebo/
+ignition/
+
+# --- Docker / containers ---
+docker-data/
+*.pid
+
+# --- Env / secrets ---
+.env
+.env.*
