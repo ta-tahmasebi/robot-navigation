@@ -16,7 +16,7 @@ class InitialPosePublisher(Node):
 
         self.declare_parameter("topic", "/initialpose")
         self.declare_parameter("frame_id", "map")
-        self.declare_parameter("x", 11.138)
+        self.declare_parameter("x", 11.0)
         self.declare_parameter("y", 6.0)
         self.declare_parameter("z", 0.0)
         self.declare_parameter("yaw", 0.0)
