@@ -19,11 +19,6 @@ public:
       kCmdVelTopic,
       rclcpp::QoS(10),
       std::bind(&CmdVelToWheelAngularVel::onCmdVel, this, std::placeholders::_1));
-
-    RCLCPP_INFO(
-      this->get_logger(),
-      "Node started. wheel_radius=%.3f m, wheel_separation=%.3f m",
-      wheel_radius_, wheel_separation_);
   }
 
 private:
@@ -34,9 +29,6 @@ private:
   void onCmdVel(const geometry_msgs::msg::Twist::SharedPtr msg)
   {
     if (wheel_radius_ <= 0.0) {
-      RCLCPP_WARN_THROTTLE(
-        this->get_logger(), *this->get_clock(), 2000,
-        "wheel_radius must be > 0. Current: %.6f", wheel_radius_);
       return;
     }
 

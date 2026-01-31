@@ -26,9 +26,10 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'prediction_node = localization.prediction_node:main',
-            'measurement_node = localization.measurement_node:main',
-            'ekf_node = localization.ekf_node:main',
+            'prediction_node = localization.prediction:main',
+            'measurement_node = localization.measurement:main',
+            'ekf_node = localization.ekf:main',
+            'initinal_pos = localization.initinal_pos:main',
         ],
     },
 )

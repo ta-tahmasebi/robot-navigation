@@ -25,9 +25,6 @@ private:
   void onCommands(const std_msgs::msg::Float64MultiArray::SharedPtr msg) const
   {
     if (msg->data.size() < 2) {
-      RCLCPP_WARN_THROTTLE(
-        get_logger(), *get_clock(), 2000,
-        "Expected at least 2 motor commands, got %zu", msg->data.size());
       return;
     }
 

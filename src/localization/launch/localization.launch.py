@@ -3,7 +3,6 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
-import os
 
 
 def generate_launch_description():
@@ -16,13 +15,14 @@ def generate_launch_description():
         description="Use simulation time"
     )
 
-    prediction_node = Node(
+    ekf_node = Node(
         package="localization",
-        executable="prediction_node",
-        name="prediction_node",
+        executable="ekf_node",
+        name="ekf_node",
         output="screen",
         parameters=[{"use_sim_time": use_sim_time}],
     )
+
 
     measurement_node = Node(
         package="localization",
@@ -32,10 +32,18 @@ def generate_launch_description():
         parameters=[{"use_sim_time": use_sim_time}],
     )
 
-    ekf_node = Node(
+    prediction_node = Node(
         package="localization",
-        executable="ekf_node",
-        name="ekf_node",
+        executable="prediction_node",
+        name="prediction_node",
+        output="screen",
+        parameters=[{"use_sim_time": use_sim_time}],
+    )
+
+    initinal_pos = Node(
+        package="localization",
+        executable="initinal_pos",
+        name="initinal_pos",
         output="screen",
         parameters=[{"use_sim_time": use_sim_time}],
     )
@@ -45,4 +53,5 @@ def generate_launch_description():
         prediction_node,
         measurement_node,
         ekf_node,
+        initinal_pos,
     ])
