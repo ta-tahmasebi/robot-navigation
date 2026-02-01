@@ -31,7 +31,7 @@ class AStarPlanner(Node):
         self.declare_parameter('auto_goal_x', 28.0)
         self.declare_parameter('auto_goal_y', 1.0)
 
-        self.declare_parameter('robot_radius_cells', 5)
+        self.declare_parameter('robot_radius_cells', 10)
 
         self.declare_parameter('publish_period_sec', 1.0)
 
