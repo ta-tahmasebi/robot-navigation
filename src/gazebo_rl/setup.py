@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'smoke_test = gazebo_rl.smoke_test:main',
+            'trainer = gazebo_rl.trainer:main',
         ],
     },
 )
