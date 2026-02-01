@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-rm -rf build install log 
-
-colcon build 
 
 set -e
 WS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
