@@ -303,12 +303,6 @@ class AStarPlanner(Node):
         if not self.is_free(sx, sy) or not self.is_free(gx, gy):
             return None
 
-        dx0 = abs(gx - sx)
-        dy0 = abs(gy - sy)
-        scale_mid = (dx0 + dy0) / 2.0
-        theta_x = 0
-        _ = scale_mid
-
         def h(a: Tuple[int, int], b: Tuple[int, int]) -> float:
             return math.hypot(b[0] - a[0], b[1] - a[1])
 
@@ -346,6 +340,7 @@ class AStarPlanner(Node):
                 if not self.is_free(nx, ny):
                     continue
 
+                # prevent corner-cutting through obstacles
                 if ox != 0 and oy != 0:
                     if not self.is_free(cx + ox, cy) or not self.is_free(cx, cy + oy):
                         continue
